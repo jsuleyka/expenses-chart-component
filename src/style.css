@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+body {
+  background-color: hsl(33, 100%, 98%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.balance-container {
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 15px;
+  margin-top: 90px;
+  padding: 10px 20px;
+  width: 320px;
+}
+
+.balance-container p {
+  color: white;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+p.balance-title {
+  font-size: 12px;
+}
+
+p.balance-price {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.spending-container {
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  padding-bottom: 30px;
+  width: 320px;
+}
+
+.spending-container p strong {
+  color: black;
+  font-size: 25px;
+}
+
+.chart-container {
+  margin: 20px -15px;
+        /* position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px; */
+}
+
+/* .chart-container #myChart {
+  display: block;
+  height: 260px;
+  width: 100%;
+} */
+
+
+hr {
+  height: 1px;
+  background-color: hsl(33, 100%, 98%);
+  border: 1.3px solid hsl(33, 100%, 98%);
+}
+
+.total-container {
+  margin-top: 30px;
+}
+
+.total-container .flex-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.percent-container {
+  text-align: right;
+}
+
+.total-container p {
+  color: hsl(28, 10%, 53%);
+  font-size: 12px;
+  margin: 0;
+}
+
+.total-container p.price {
+  color: hsl(25, 47%, 15%);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.total-container p.percent {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.attribution {
+  background-color: hsl(227, 35%, 25%);
+  margin-top: 200px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.attribution p,
+.attribution p a {
+  color: white;
+}
+
+.attribution p a {
+  color: hsl(25, 97%, 53%);
+  text-decoration: none;
+}
+
+.attribution p a:active,
+.attribution p a:hover,
+.attribution p a:focus,
+.attribution p a:visited {
+  text-decoration: underline;
+}
+
+@media (min-width: 1440px) {
+  
+}
