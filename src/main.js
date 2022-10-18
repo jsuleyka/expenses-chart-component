@@ -60,6 +60,9 @@ const myChart = async (fn) => {
       }]
     },
     options: {
+      legend: {
+        display: false
+      },
       title: {
         display: false,
         // text: "World Wine Production 2018"
@@ -69,8 +72,8 @@ const myChart = async (fn) => {
         mode: 'single',
         yAlign: 'bottom',
         callbacks: {
-          title: (ctx, data) => (data.datasets[ctx[0].datasetIndex].data[ctx[0].index].x),
-          label: function (tooltipItems, data) {
+          title: () => null,
+          label: function (tooltipItems) {
             return '$' + tooltipItems.yLabel;
           }
         }
@@ -84,7 +87,7 @@ const myChart = async (fn) => {
           },
           ticks: {
             fontColor: "hsl(28, 10%, 53%)", // <-- Color de labels eje X
-            fontSize: 12
+            fontSize: 14
           }
           // scaleLabel: {
           //   display: true,
@@ -102,22 +105,12 @@ const myChart = async (fn) => {
             display: false,
             beginAtZero: true,
             max: 60,
-            stepSize: 10
+            stepSize: 5
           }
         }]
       }
     }
   });
 }
-
-// const pointBackgroundColors = [];
-// for (i = 0; i < myChart.data.datasets[0].data.length; i++) {
-//   if (myChart.data.datasets[0].data[i] > 100) {
-//       pointBackgroundColors.push("#90cd8a");
-//   } else {
-//       pointBackgroundColors.push("#f58368");
-//   }
-// }
-
 
 myChart(getJson);

@@ -55,7 +55,12 @@ p.balance-price {
 }
 
 .chart-container {
-  margin: 20px -15px;
+  margin: 30px -15px 20px;
+}
+
+.chart-container #myChart {
+  height: 220px !important;
+  font-size: 12px;
 }
 
 hr {
@@ -130,16 +135,20 @@ hr {
     font-size: 28px;
   }
 
-  logo-container img {
+  .logo-container img {
     height: 45px;
   }
-  
+
   .spending-container {
     padding-bottom: 45px;
   }
 
   .spending-container p strong {
     font-size: 32px;
+  }
+
+  .chart-container #myChart {
+    height: 170px !important;
   }
 
   .total-container p {
