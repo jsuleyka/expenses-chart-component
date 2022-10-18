@@ -1,6 +1,7 @@
 // const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
 // const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green", "blue", "orange", "brown"], dayColor = "hsl(10, 79%, 65%)", todayColor = "hsl(186, 34%, 60%)";
+const barColors = ["red", "green", "blue", "orange", "brown"], dayColor = "hsl(10, 79%, 65%)", 
+todayColor = "hsl(186, 34%, 60%)";
 
 async function getJson() {
   const response = await fetch('data.json');
@@ -28,20 +29,21 @@ const dayName = date => [
   'sat',
   'sun',
 ][new Date(date).getDay()];
-
-// console.log(dayName(new Date()));
+const dayNameVal = dayName(new Date());
 
 const myChart = async (fn) => {
   const { days, vals } = await fn();
-  // const numberDay = new Date().getDate();
-  // const today = fecha.getDate();
+  const backgroundColor = [];
 
-  // const dayName = date =>days[new Date(date).getDay()];
-
-  console.log(dayName(new Date()));
-  console.log(days);
-
-  console.log(dayName(new Date()) ? true : false);
+  for (let i = 0; i < days.length; i++) {
+    if (days[i] === dayNameVal) {
+      backgroundColor.push(todayColor);
+    }
+    else{
+      backgroundColor.push(dayColor);
+    }    
+  }
+  console.log(dayNameVal);
 
   new Chart("myChart", {
     theme: "light2",
@@ -49,12 +51,11 @@ const myChart = async (fn) => {
     data: {
       labels: days,
       datasets: [{
-        backgroundColor: dayName(new Date()) ? todayColor : dayColor,
+        backgroundColor: backgroundColor,
         // borderColor: 'orange',
-        cornerRadius: 40,
-        borderWidth: 1,
+        borderRadius: 40,
+        // borderWidth: 1,
         borderSkipped: false,
-        // backgroundColor: barColors,
         data: vals
       }]
     },
@@ -64,21 +65,15 @@ const myChart = async (fn) => {
         // text: "World Wine Production 2018"
       },
       tooltips: {
+        enabled: true,
+        mode: 'single',
         yAlign: 'bottom',
         callbacks: {
-          labels: function (context) {
-            let label = context.dataset.label || '';
-
-            if (label) {
-              label += ': ';
-            }
-            if (context.parsed.y !== null) {
-              label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-            }
-            console.log(label);
-            return label;
+          title: (ctx, data) => (data.datasets[ctx[0].datasetIndex].data[ctx[0].index].x),
+          label: function (tooltipItems, data) {
+            return '$' + tooltipItems.yLabel;
           }
-        },
+        }
       },
       scales: {
         xAxes: [{
@@ -89,7 +84,7 @@ const myChart = async (fn) => {
           },
           ticks: {
             fontColor: "hsl(28, 10%, 53%)", // <-- Color de labels eje X
-            fontSize: 11
+            fontSize: 12
           }
           // scaleLabel: {
           //   display: true,
@@ -109,10 +104,20 @@ const myChart = async (fn) => {
             max: 60,
             stepSize: 10
           }
-        }],
+        }]
       }
     }
   });
 }
+
+// const pointBackgroundColors = [];
+// for (i = 0; i < myChart.data.datasets[0].data.length; i++) {
+//   if (myChart.data.datasets[0].data[i] > 100) {
+//       pointBackgroundColors.push("#90cd8a");
+//   } else {
+//       pointBackgroundColors.push("#f58368");
+//   }
+// }
+
 
 myChart(getJson);

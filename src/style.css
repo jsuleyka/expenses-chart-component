@@ -10,13 +10,17 @@ body {
 
 * {
   font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
 }
 
 .balance-container {
   background-color: hsl(10, 79%, 65%);
   border-radius: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-top: 90px;
-  padding: 10px 20px;
+  padding: 15px 20px 20px;
   width: 320px;
 }
 
@@ -26,13 +30,14 @@ body {
   margin-top: 5px;
 }
 
-p.balance-title {
-  font-size: 12px;
+p.balance-price {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 0px;
 }
 
-p.balance-price {
-  font-size: 21px;
-  font-weight: bold;
+.logo-container img {
+  height: 42px;
 }
 
 .spending-container {
@@ -51,22 +56,10 @@ p.balance-price {
 
 .chart-container {
   margin: 20px -15px;
-        /* position: absolute;
-        top: 8px;
-        left: 8px;
-        right: 8px;
-        bottom: 8px; */
 }
 
-/* .chart-container #myChart {
-  display: block;
-  height: 260px;
-  width: 100%;
-} */
-
-
 hr {
-  height: 1px;
+  /* height: 1px; */
   background-color: hsl(33, 100%, 98%);
   border: 1.3px solid hsl(33, 100%, 98%);
 }
@@ -87,20 +80,18 @@ hr {
 
 .total-container p {
   color: hsl(28, 10%, 53%);
-  font-size: 12px;
   margin: 0;
 }
 
 .total-container p.price {
   color: hsl(25, 47%, 15%);
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   line-height: 1;
 }
 
 .total-container p.percent {
   color: black;
-  font-size: 12px;
   font-weight: bold;
 }
 
@@ -130,5 +121,33 @@ hr {
 }
 
 @media (min-width: 1440px) {
+  .balance-container, .spending-container {
+    padding: 15px 30px 20px;
+    width: 460px;
+  }
+
+  p.balance-price {
+    font-size: 28px;
+  }
+
+  logo-container img {
+    height: 45px;
+  }
   
+  .spending-container {
+    padding-bottom: 45px;
+  }
+
+  .spending-container p strong {
+    font-size: 32px;
+  }
+
+  .total-container p {
+    font-size: 18px;
+  }
+
+  .total-container p.price {
+    font-size: 48px;
+    margin-top: 8px;
+  }
 }
